@@ -1,0 +1,12 @@
+dbt_transform:
+  outputs:
+    dev:
+      dbname: dwh
+      host: localhost
+      pass: mypassword
+      port: 5434
+      schema: final
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
