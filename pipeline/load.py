@@ -4,9 +4,9 @@ import pandas as pd
 import time
 import sqlalchemy
 from datetime import datetime
-from extract import Extract
-from utils.db_conn import db_connection
-from utils.read_sql import read_sql_file
+from pipeline.extract import Extract
+from pipeline.utils.db_conn import db_connection
+from pipeline.utils.read_sql import read_sql_file
 from sqlalchemy.orm import sessionmaker
 import os
 
@@ -299,8 +299,3 @@ class Load(luigi.Task):
         return [luigi.LocalTarget(f'{DIR_TEMP_LOG}/logs.log'),
                 luigi.LocalTarget(f'{DIR_TEMP_DATA}/load-summary.csv')]
         
-# Execute the functions when the script is run
-if __name__ == "__main__":
-    # Build the task
-    luigi.build([Extract(),
-                 Load()])

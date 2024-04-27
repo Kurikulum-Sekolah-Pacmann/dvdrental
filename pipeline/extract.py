@@ -3,8 +3,8 @@ from datetime import datetime
 import logging
 import time
 import pandas as pd
-from utils.db_conn import db_connection
-from utils.read_sql import read_sql_file
+from pipeline.utils.db_conn import db_connection
+from pipeline.utils.read_sql import read_sql_file
 import os
 
 # Define DIR
@@ -119,8 +119,3 @@ class Extract(luigi.Task):
             
         outputs.append(luigi.LocalTarget(f'{DIR_TEMP_LOG}/logs.log'))
         return outputs
-
-# Execute the functions when the script is run
-if __name__ == "__main__":
-    # Build the task
-    luigi.build([Extract()])
