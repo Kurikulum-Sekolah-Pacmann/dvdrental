@@ -17,10 +17,10 @@ DIR_TEMP_DATA = os.getenv("DIR_TEMP_DATA")
 DIR_LOG = os.getenv("DIR_LOG")
 SENTRY_DSN = os.getenv("SENTRY_DSN")
 
-# # Track the error using sentry
-# sentry_sdk.init(
-#     dsn = f"{SENTRY_DSN}"
-# )
+# Track the error using sentry
+sentry_sdk.init(
+    dsn = f"{SENTRY_DSN}"
+)
 
 
 # Execute the functions when the script is run
